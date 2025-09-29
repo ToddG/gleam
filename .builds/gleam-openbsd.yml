@@ -1,0 +1,21 @@
+image: openbsd/7.7
+packages:
+  - rust
+  - erlang
+  - elixir
+  - nodejs
+  - deno
+  - bun
+secrets:
+  -  beb25b2f-8852-42bf-9d7b-d1ec92bcc5f0
+sources:
+  -  git@git.sr.ht:~toddg/gleam
+tasks:
+  - rust: |
+      rust upgrade stable 
+  - test: |
+      cd gleam
+      cargo test
+  - lang-test: |
+      cd gleam
+      make language-test
